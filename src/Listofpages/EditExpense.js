@@ -10,7 +10,7 @@ function EditExpense({ itemToEdit, closeModal, updateExpense }) {
   const [date, setDate] = useState('');
   const [amount, setAmount] = useState('');
 
-  // Set the initial state based on the item to be edited
+
   useEffect(() => {
     if (itemToEdit) {
       setName(itemToEdit.name);
@@ -32,10 +32,10 @@ function EditExpense({ itemToEdit, closeModal, updateExpense }) {
       amount,
     };
 
-    // Pass the updated expense data to the parent component
+    
     updateExpense(updatedExpense);
 
-    // Close the modal
+ 
     closeModal();
   };
 

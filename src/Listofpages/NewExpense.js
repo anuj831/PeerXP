@@ -20,14 +20,14 @@ function NewExpense({ closeModal, addExpense }) {
       description,
       date,
       amount,
-      uploadedAt, // Include uploadedAt
-      createdBy, // Include createdBy
+      uploadedAt, 
+      createdBy, 
     };
 
-    // Pass the new expense data to the parent component
+ 
     addExpense(newExpense);
 
-    // Close the modal
+
     closeModal();
   };
 
