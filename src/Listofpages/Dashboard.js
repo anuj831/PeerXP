@@ -50,66 +50,65 @@ function Dashboard() {
     <div className="container mt-4 nav">
       <h1 className="mb-3 head">MY EXPENSE MANAGER</h1>
       <div className="row mb-3">
-        <div className="col search1">
+        <div className="col-md-4 mb-3">
           <FormControl
             type="text"
             placeholder="Search by Name..."
             value={search1}
             onChange={handleSearch1Change}
-            style={{ width: '120%' }}
           />
         </div>
-        <div className="col search2">
+        <div className="col-md-4 mb-3">
           <FormControl
             type="text"
             placeholder="Search by Email..."
             value={search2}
             onChange={handleSearch2Change}
-            style={{ width: '120%' }}
           />
         </div>
-        <div className="col butt">
+        <div className="col-md-4 mb-3">
           <Link to="/new-expense">
             <Button variant="primary">New Expense</Button>
           </Link>
         </div>
       </div>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Date of Expense</th>
-            <th>Amount</th>
-            <th>Updated At</th>
-            <th>Created By</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.age}</td>
-              <td>{item.email}</td>
+      <div className="table-responsive">
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
-      <Pagination>
-        {Array(Math.ceil(filteredData.length / itemsPerPage))
-          .fill()
-          .map((_, index) => (
-            <Pagination.Item
-              key={index}
-              active={index + 1 === currentPage}
-              onClick={() => paginate(index + 1)}
-            >
-              {index + 1}
-            </Pagination.Item>
-          ))}
-      </Pagination>
+          </thead>
+          <tbody>
+            {currentItems.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td>{item.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
+      <div className="d-flex justify-content-center">
+        <Pagination>
+          {Array(Math.ceil(filteredData.length / itemsPerPage))
+            .fill()
+            .map((_, index) => (
+              <Pagination.Item
+                key={index}
+                active={index + 1 === currentPage}
+                onClick={() => paginate(index + 1)}
+              >
+                {index + 1}
+              </Pagination.Item>
+            ))}
+        </Pagination>
+      </div>
     </div>
   );
 }

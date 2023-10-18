@@ -12,12 +12,14 @@ function DeleteExpense({ expense, onDelete, onClose }) {
         <p>Are you sure you want to delete this expense?</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="danger" onClick={onClose}>
-          No
-        </Button>
-        <Button variant="success" onClick={() => onDelete(expense)}>
-          yes,Delete
-        </Button>
+        <div className="d-flex justify-content-center w-100">
+          <Button variant="danger" onClick={onClose} className="mr-2">
+            No
+          </Button>
+          <Button variant="success" onClick={() => onDelete(expense)} className="ml-2">
+            Yes, Delete
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );

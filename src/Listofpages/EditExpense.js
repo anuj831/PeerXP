@@ -10,7 +10,6 @@ function EditExpense({ itemToEdit, closeModal, updateExpense }) {
   const [date, setDate] = useState('');
   const [amount, setAmount] = useState('');
 
-
   useEffect(() => {
     if (itemToEdit) {
       setName(itemToEdit.name);
@@ -32,10 +31,8 @@ function EditExpense({ itemToEdit, closeModal, updateExpense }) {
       amount,
     };
 
-    
     updateExpense(updatedExpense);
 
- 
     closeModal();
   };
 
@@ -90,16 +87,14 @@ function EditExpense({ itemToEdit, closeModal, updateExpense }) {
               onChange={(e) => setAmount(e.target.value)}
             />
           </Form.Group>
-          <br />
-          <Button variant="secondary" onClick={closeModal}>
-            Cancel
-          </Button> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; 
-                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 
-          <Button variant="success" type="submit">
-            Create Expenses
-          </Button>
+          <div className="d-flex justify-content-center">
+            <Button variant="secondary" onClick={closeModal} className="mr-2">
+              Cancel
+            </Button>
+            <Button variant="success" type="submit" className="ml-2">
+              Create Expense
+            </Button>
+          </div>
         </Form>
       </Modal.Body>
     </Modal>
